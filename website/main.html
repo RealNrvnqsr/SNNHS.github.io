@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sto Niño National High School - Senior High</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #ffffff; /* plain white background */
+    color: #333;
+}
+
+
+/* NAVBAR */
+nav {background:#006b3c;color:white;padding:12px 30px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:1000;}
+.logo{display:flex;align-items:center;font-weight:bold;font-size:20px;}
+.logo img{height:50px;width:auto;margin-right:10px;}
+.nav-links{display:flex;align-items:center;gap:20px;}
+.nav-links a{color:white;text-decoration:none;padding:0 10px;position:relative;font-weight:600;}
+.nav-links a.active::after{content:"";position:absolute;bottom:-6px;left:0;width:100%;height:2px;background:white;}
+
+
+/* SLIDESHOW */
+.slideshow {
+    position:relative;
+    width:100%;
+    height:400px;
+    overflow:hidden;
+}
+
+.slide {
+    position:absolute;
+    width:100%;
+    height:100%;
+    opacity:0;
+    transition:opacity 1s ease-in-out;
+}
+
+.slide img {
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.slide.active {
+    opacity:1;
+}
+
+
+section {
+    padding:60px 20px;
+    max-width:900px;
+    margin:auto;
+}
+
+h2 {
+    color:#ffd100;
+}
+
+.strands h2 {
+    font-size: 28px;
+}
+
+/* SCHOOL INFO SECTION */
+.school-info {
+    background: #ffffff; /* make school info section white */
+    padding: 60px 0;
+    box-sizing: border-box;
+    max-width: 100% !important;
+    margin: 0 !important;
+}
+
+.school-info-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 1100px; /* content width */
+    margin: auto;
+    gap: 40px;
+    padding: 0 20px;
+    flex-wrap: wrap; /* stacks on smaller screens */
+}
+
+.school-info-image img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+.school-info-text {
+    flex: 1;
+    min-width: 250px;
+}
+
+.school-info-text h2 {
+    color: #ffd100;
+    margin-bottom: 20px;
+    font-size: 28px;
+}
+
+.school-info-text p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+}
+
+
+
+/* STRANDS SECTION - reduce top padding */
+.strands {
+    background: #ffffff; /* make strands section white */
+    text-align: center;
+    padding: 40px 20px;
+    max-width: none;
+    margin: 0;
+}
+
+.strand-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.strand-card {
+    background: #ffffff;
+    padding: 30px;
+    width: 320px;
+    border-radius: 12px;
+    text-decoration: none;
+    color: #333;
+    transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.strand-card h3 {
+    color: #006b3c;
+    margin-bottom: 10px;
+}
+
+.strand-card p {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* Hover animation */
+.strand-card:hover {
+    transform: scale(1.05);
+    background: #006b3c;
+    color: white;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.strand-card:hover h3 {
+    color: #ffd100;
+}
+
+.strand-card img {
+    width: 120px;        /* keeps logos nicely sized */
+    height: auto;
+    margin-bottom: 15px; /* space between logo and title */
+    transition: transform 0.3s ease;
+}
+
+.strand-card:hover img {
+    transform: scale(1.1);
+}
+
+.apply-cta {
+    text-align: center;
+    font-size: 24px; /* large text */
+    font-weight: bold;
+    color: #ffd100; /* yellow */
+    margin: 40px 0; /* spacing from footer */
+}
+
+/* FOOTER */
+.footer-right h3 {
+    margin-top: 0;
+}
+footer{background:#006b3c;color:white;padding:40px 20px 20px;}
+.footer-container{display:flex;justify-content:space-between;flex-wrap:wrap;gap:40px;max-width:1100px;margin:auto;align-items: flex-start;}
+.footer-left,.footer-right{flex:1;min-width:250px;text-align:left;}
+.footer-school{display:flex;align-items:center;gap:15px;margin-bottom:20px;}
+.footer-school img{width:60px;}
+.footer-school h2{color:white;font-size:22px;margin:0;font-weight:bold;}
+.footer-info{display:flex;align-items:center;gap:12px;margin:10px 0;}
+.footer-info img{width:28px;height:auto;}
+.footer-right h3{color:#ffd100;margin-bottom:15px;}
+.footer-link{color:white;text-decoration:none;}
+.footer-link:hover{text-decoration:underline;}
+.footer-bottom{display:flex;justify-content:center;align-items:center;text-align:center;padding:10px 0;border-top:1px solid rgba(255,255,255,0.4);}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">
+        <img src="pngs/logo.png" alt="Sto Niño Logo">
+        STO NIÑO NATIONAL HIGHSCHOOL
+    </div>
+    <div class="nav-links">
+        <a href="main.html" class="active">Home</a>
+        <a href="about.html">About the School</a>
+        <a href="offers.html">Strands</a>
+        <a href="#footer">Contacts</a>
+    </div>
+</nav>
+
+<!-- SLIDESHOW -->
+<div class="slideshow" id="slideshow"></div>
+
+
+<section class="school-info">
+  <div class="school-info-container">
+    <div class="school-info-image">
+      <img src="pngs/SchoolImages/Front.jpg">
+    </div>
+    <div class="school-info-text">
+      <h2>School Info</h2>
+      <p>
+        <b>Sto Niño National Highschool</b> is a public educational institution located on <b>Marikina City</b> designed to shape the minds of our future nation builders,
+        offering an inspiring environment where students grow, excel, and achieve their full potential.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<section class="strands">
+    <h2>Senior Highschool Strands</h2>
+
+    <div class="strand-container">
+
+        <a href="offers.html?strand=ict" class="strand-card">
+        <img src="pngs/comproglogo.png" alt="ICT Logo">
+        <h3>ICT (Computer Programming)</h3>
+        <p>Learn HTML, C++, SQL, and Java while developing real programming and problem-solving skills.</p>
+        </a>
+
+        <a href="offers.html?strand=he" class="strand-card">
+        <img src="pngs/HElogo.png" alt="Home Economics Logo">
+        <h3>Home Economics (Cookery)</h3>
+        <p>Gain hands-on culinary skills, food preparation techniques, and kitchen management knowledge.</p>
+        </a>
+
+    </div>
+</section>
+
+<!-- CALL TO ACTION -->
+<div class="apply-cta">
+    ⬇ Applying? Refer to our Contacts Below ⬇
+</div>
+
+<!-- FOOTER -->
+<footer id="footer">
+    <div class="footer-container">
+        <div class="footer-left">
+            <div class="footer-school">
+                <img src="pngs/logo.png" alt="School Logo">
+                <h2>STO NIÑO NATIONAL HIGHSCHOOL</h2>
+            </div>
+            <div class="footer-info">
+                <img src="pngs/location.png" alt="Location Icon">
+                <p>J3QW+MG2, Agricultores St, Marikina, 1800 Metro Manila</p>
+            </div>
+        </div>
+        <div class="footer-right">
+            <h3>Contact Us</h3>
+            <div class="footer-info">
+                <img src="pngs/email.png" alt="Email Icon">
+                <p>snnhs.marikina@deped.gov.ph</p>
+            </div>
+            <div class="footer-info">
+                <img src="pngs/fblogo.png" alt="Facebook Icon">
+                <a href="https://www.facebook.com/SNNHSMC" target="_blank" class="footer-link">facebook.com/SNNHSMC</a>
+            </div>
+            <div class="footer-info">
+                <img src="pngs/phonelogo.png" alt="Phone Icon">
+                <p>099340257</p>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>© 2026 Sto Niño National Highschool</p>
+    </div>
+</footer>
+
+
+<script>
+const slideshow = document.getElementById("slideshow");
+
+// Your 11 images
+const images = [
+    "pngs/SchoolImages/1.jpg",
+    "pngs/SchoolImages/2.jpg",
+    "pngs/SchoolImages/3.jpg",
+    "pngs/SchoolImages/4.jpg",
+    "pngs/SchoolImages/5.jpg",
+    "pngs/SchoolImages/6.jpg",
+    "pngs/SchoolImages/7.jpg",
+    "pngs/SchoolImages/8.jpg",
+    "pngs/SchoolImages/9.jpg",
+    "pngs/SchoolImages/10.jpg",
+    "pngs/SchoolImages/11.jpg"
+];
+
+let index = 0;
+let slides = [];
+
+// Create slides dynamically
+images.forEach((src, i) => {
+    const slide = document.createElement("div");
+    slide.classList.add("slide");
+    if (i === 0) slide.classList.add("active");
+
+    const img = document.createElement("img");
+    img.src = src;
+    img.alt = "School Image " + (i + 1);
+
+    slide.appendChild(img);
+    slideshow.appendChild(slide);
+    slides.push(slide);
+});
+
+function showSlide() {
+    slides[index].classList.remove("active");
+    index = (index + 1) % slides.length;
+    slides[index].classList.add("active");
+}
+
+setInterval(showSlide, 4000);
+</script>
+
+</body>
+</html>

@@ -75,11 +75,12 @@ footer{background:#006b3c;color:white;padding:40px 20px 20px;}
 /* SLIDESHOW */
 .slideshow {
     position: relative;
-    width: 600px;
-    height: 400px; /* your fixed height */
+    width: 100%;           /* full width */
+    max-width: 600px;      /* keeps it nice on desktop */
+    aspect-ratio: 3 / 2;   /* replaces fixed height */
     overflow: hidden;
     border-radius: 10px;
-    margin: 10px auto;
+    margin: 20px auto;
 }
 
 .slide {
@@ -93,7 +94,7 @@ footer{background:#006b3c;color:white;padding:40px 20px 20px;}
 .slide img {
     width: 100%;
     height: 100%;
-    object-fit: fill; /* THIS stretches the image */
+    object-fit: cover; /* THIS stretches the image */
 }
 
 .slide.active {
@@ -314,4 +315,5 @@ createSlideshow("heSlideshow", [
 </body>
 
 </html>
+
 
